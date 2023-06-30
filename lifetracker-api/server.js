@@ -1,5 +1,5 @@
 
-const {NotFoundError} = require('./utils/errors')
+const {NotFoundError,BadRequestError} = require('./utils/errors')
 const cors = require('cors')
 const {PORT} = require('./config')
 const express = require('express')
@@ -12,14 +12,18 @@ app.use(cors())
 app.use(morgan('tiny'))
 app.use(express.json())
 
-app.use((req,res,next) => {
-    return next(new NotFoundError())
-})
+
 
 app.use('/auth',authRoutes)
 
-app.use((req,res,err,next) => {
-    const status = err.status() || 500
+app.get("/", function (req, res) {
+    return res.status(200).json({
+      ping: "pong",
+    })
+  })
+
+app.use((err,req,res,next) => {
+    const status = err.status || 500
     const message = err.message
 
     return res.status(status).json({
@@ -27,6 +31,9 @@ app.use((req,res,err,next) => {
     })
 })
 
+app.use((req,res,next) => {
+    return next(new NotFoundError())
+})
 
 
 app.listen(PORT, () => {
