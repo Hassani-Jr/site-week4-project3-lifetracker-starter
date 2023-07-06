@@ -11,9 +11,9 @@ function getDatabaseUri(){
     const dbName = process.env.DATABASE_NAME|| 'lifetracker'
 
     return process.env.DATABASE_URL || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
-
-
 }
+
+const BCRYPT_WORK_FACTOR = 13
 
 console.log("App Config")
 console.log("PORT:", PORT)
@@ -24,5 +24,6 @@ console.log("---")
 
 module.exports ={
     PORT,
+    BCRYPT_WORK_FACTOR,
     getDatabaseUri
 }

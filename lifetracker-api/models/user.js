@@ -1,10 +1,44 @@
 const { BadRequestError, UnauthorizedError} = require('../utils/errors')
 const db = require('../db')
+const {BCRYPT_WORK_FACTOR} = require('../config')
+const bcrypt = require('bcrypt')
+const { use } = require('../routes/auth')
 
 
 class User{
-    static async login(credentials){
 
+    static async makeUserPublic(user){
+        return{
+            id: user.id,
+            email: user.email,
+            username : user.username,
+            first_name : user.first_name,
+            last_name : user.last_name
+        }
+    }
+
+    static async login(credentials){
+        const requiredFields = ['email','password']
+        requiredFields.forEach((field) => {
+            if(!credentials.hasOwnProperty(field)){
+                throw new BadRequestError(`Missing ${field} in the body`)
+            }
+        })
+
+        const user = await User.fetchUserByEmail(credentials.email)
+        
+        if (user){
+        const isValid = await bcrypt.compare(credentials.password,user.password)
+            if (isValid){
+                {return User.makeUserPublic(user)}
+            }
+
+    }
+
+
+        if(credentials.email.indexOf("@") <= 0){
+            throw new BadRequestError('Invalid email')
+        }
 
 
 
@@ -29,6 +63,8 @@ class User{
 
     const lowercasedEmail = credentials.email.toLowerCase()
 
+    const hashedPw = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR)
+
     const result = await db.query(
         `INSERT INTO users(
             username,
@@ -38,17 +74,14 @@ class User{
             email
         ) VALUES ($1, $2, $3, $4, $5)
         RETURNING id, username,first_name,last_name,email;`,
-        [credentials.username,credentials.password,credentials.first_name,
+        [credentials.username,hashedPw,credentials.first_name,
             credentials.last_name,lowercasedEmail
         ]
     )
 
     const user = result.rows[0]
-    return user
+    return User.makeUserPublic(user)
     }
-
-    
-
 
     static async fetchUserByEmail(email){
         if (!email)
