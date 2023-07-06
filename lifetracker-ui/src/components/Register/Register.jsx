@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./Register.css";
 
 export default function Register({ setAppState }) {
@@ -175,6 +176,11 @@ export default function Register({ setAppState }) {
         <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
           {isLoading ? "Loading..." : "Create Account"}
         </button>
+        <div className="footer">
+          <p>
+            Already have an account? Login <Link to="/login">here</Link>
+          </p>
+        </div>
       </div>
     </div>
   );
