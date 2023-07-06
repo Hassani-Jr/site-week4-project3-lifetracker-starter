@@ -6,6 +6,7 @@ import Register from "../Register/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
+import ActivityPage from "../ActivityPage/ActivityPage";
 
 function App() {
   const [appState, setAppState] = useState({});
@@ -21,6 +22,16 @@ function App() {
             element={<Register setAppState={setAppState} />}
           />
           <Route path="/login" element={<Login setAppState={setAppState} />} />
+          <Route
+            path="/portal"
+            element={
+              <ActivityPage
+                setAppState={setAppState}
+                appState={appState}
+                user={appState?.user}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

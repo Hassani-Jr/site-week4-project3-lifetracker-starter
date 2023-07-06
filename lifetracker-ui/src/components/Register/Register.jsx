@@ -1,9 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 
 export default function Register({ setAppState }) {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
@@ -22,19 +23,9 @@ export default function Register({ setAppState }) {
           ...e,
           passwordConfirm: "Password's do not match",
         }));
-      } else {
-        setErrors((e) => ({ ...e, passwordConfirm: null }));
       }
-    }
-    if (event.target.name === "passwordConfirm") {
-      if (form.password && form.password !== event.target.value) {
-        setErrors((e) => ({
-          ...e,
-          passwordConfirm: "Password's do not match",
-        }));
-      } else {
-        setErrors((e) => ({ ...e, passwordConfirm: null }));
-      }
+    } else {
+      setErrors((e) => ({ ...e, passwordConfirm: null }));
     }
     if (event.target.name === "email") {
       if (event.target.value.indexOf("@") === -1) {
@@ -55,6 +46,13 @@ export default function Register({ setAppState }) {
       setErrors((e) => ({ ...e, passwordConfirm: "Passwords do not match." }));
       setIsLoading(false);
       return;
+    } else if (form.passwordConfirm || form.password === "") {
+      setErrors((e) => ({
+        ...e,
+        passwordConfirm: "Password cannot be empty",
+      }));
+      setIsLoading(false);
+      return;
     } else {
       setErrors((e) => ({ ...e, passwordConfirm: null }));
     }
@@ -71,7 +69,7 @@ export default function Register({ setAppState }) {
       if (res?.data?.user) {
         setAppState(res.data);
         setIsLoading(false);
-        // navigate("/portal");
+        navigate("/portal");
       } else {
         setErrors((e) => ({
           ...e,
