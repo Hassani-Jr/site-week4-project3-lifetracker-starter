@@ -10,6 +10,7 @@ import ActivityPage from "../ActivityPage/ActivityPage";
 
 function App() {
   const [appState, setAppState] = useState({});
+  const [user, setUser] = useState({});
   return (
     <div className="App">
       <BrowserRouter>
@@ -19,11 +20,22 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/register"
-            element={<Register setAppState={setAppState} />}
+            element={
+              <Register
+                setAppState={setAppState}
+                user={user}
+                setUser={setUser}
+              />
+            }
           />
-          <Route path="/login" element={<Login setAppState={setAppState} />} />
           <Route
-            path="/portal"
+            path="/login"
+            element={
+              <Login user={user} setUser={setUser} setAppState={setAppState} />
+            }
+          />
+          <Route
+            path="/me"
             element={
               <ActivityPage
                 setAppState={setAppState}

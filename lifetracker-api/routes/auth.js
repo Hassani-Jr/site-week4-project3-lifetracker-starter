@@ -15,7 +15,6 @@ router.post("/login", async function (req, res, next) {
   }
 })
 
-
 router.post("/register", async function (req, res, next) {
   try {
     const user = await User.register(req.body)
@@ -25,6 +24,7 @@ router.post("/register", async function (req, res, next) {
     next(err)
   }
 })
+
 
 router.get("/me", security.requrireAuthUser, async (req,res,next) => {
   try{

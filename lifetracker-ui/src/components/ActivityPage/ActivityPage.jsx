@@ -1,7 +1,6 @@
 import "./ActivityPage.css";
 
 export default function ActivityPage({ user, setAppState }) {
-  console.log({ user });
   return (
     <div>
       <h3>Hello {user?.username}</h3>

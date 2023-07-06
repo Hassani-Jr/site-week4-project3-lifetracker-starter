@@ -24,8 +24,8 @@ By the end of this project you will be able to...
 ### Core Features
 
 - [ ] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. _Note:_ This is the only page that unauthenticated users should be able to view.
-- [ ] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
-- [ ] **Login Page:** A form that allows users to login with email and password.
+- [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
+- [x] **Login Page:** A form that allows users to login with email and password.
 - [ ] When a user first authenticates, they should be redirected to an authenticated view (i.e., the detailed activity page). When they sign out, all frontend data should be reset.
 - [ ] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
   - [ ] If the user is logged in, it should display a **Sign Out** button.
@@ -57,12 +57,12 @@ Implement any of the following features to improve the application:
 - [ ] Build the `App` component to:
   - [ ] Be wrapped by an element with the class name of `app`
   - [ ] Contain the routes for the app
-  - [ ] Render the `Navbar` component on every route
-  - [ ] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
-    - [ ] `/` - Render the `Landing` component
-    - [ ] `/login` - Render the `LoginPage` component
-    - [ ] `/register` - Render the `RegistrationPage` component
-    - [ ] `/activity` - Render the `ActivityPage` component **only** if the user is logged in, otherwise it renders the `AccessForbidden` component
+  - [x] Render the `Navbar` component on every route
+  - [x] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
+    - [x] `/` - Render the `Landing` component
+    - [x] `/login` - Render the `LoginPage` component
+    - [x] `/register` - Render the `RegistrationPage` component
+    - [x] `/activity` - Render the `ActivityPage` component **only** if the user is logged in, otherwise it renders the `AccessForbidden` component
     - [ ] `/nutrition/*` - Render the `NutritionPage`component **only** if the user is logged in, otherwise it renders the`AccessForbidden` component
     - [ ] `*` - Anything else renders the `NotFound` component
 
@@ -118,10 +118,10 @@ Update the `App` component to manage authentication state:
 #### Implement the `Navbar` Component
 
 - [ ] Build the **`Navbar`** component to:
-  - [ ] Render JSX that is wrapped by a `nav` element with the class name of `navbar`
-  - [ ] Render the app's logo as an element with the class name of `logo`.
-    - [ ] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
-    - [ ] Inside that `Link` component should be the application's logo (text or image).
+  - [x] Render JSX that is wrapped by a `nav` element with the class name of `navbar`
+  - [x] Render the app's logo as an element with the class name of `logo`.
+    - [x] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
+    - [x] Inside that `Link` component should be the application's logo (text or image).
   - [ ] Render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route.
 
 #### Implement the `NavLinks` Component
@@ -141,28 +141,28 @@ Update the `App` component to manage authentication state:
 #### Implement the `LoginForm` Component
 
 - [ ] Build the **`LoginForm`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `login-form`
-  - [ ] Render an input element for the following fields:
-    - [ ] `email`
-    - [ ] `password`
-  - [ ] Each `input` element in the form should have a class name of `form-input` and should have the following props set:
-    - [ ] `name` - the `name` of the `input` field being rendered (`email`, `password`)
-    - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc.)
-    - [ ] `value` - the current value of the `input` element
-    - [ ] `onChange` - the `onChange` handler function
-  - [ ] Validate the `email` field. If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the class name of `error` indicating that the entry is not a valid email.
-  - [ ] Gracefully handle errors:
-    - [ ] If the user has attempted to login and gotten a `401` error, then an error message should be displayed in an element with the class name of `error` indicating that the `email` and `password` combination is incorrect.
+  - [x] Render JSX that is wrapped by an element with the class name of `login-form`
+  - [x] Render an input element for the following fields:
+    - [x] `email`
+    - [x] `password`
+  - [x] Each `input` element in the form should have a class name of `form-input` and should have the following props set:
+    - [x] `name` - the `name` of the `input` field being rendered (`email`, `password`)
+    - [x] `type` - the type of the `input` element (`text`, `email`, `number`, etc.)
+    - [x] `value` - the current value of the `input` element
+    - [x] `onChange` - the `onChange` handler function
+  - [x] Validate the `email` field. If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the class name of `error` indicating that the entry is not a valid email.
+  - [x] Gracefully handle errors:
+    - [x] If the user has attempted to login and gotten a `401` error, then an error message should be displayed in an element with the class name of `error` indicating that the `email` and `password` combination is incorrect.
     - [ ] If the user has attempted to login and gotten a `400` or `422` error, then an error message should be displayed in an element with the class name of `error` indicating what went wrong.
-  - [ ] There should be a `button` element with the class name of `submit-login`:
-    - [ ] It should contain the text `"Login"`
-    - [ ] When clicked, it should call the `loginUser` function
+  - [x] There should be a `button` element with the class name of `submit-login`:
+    - [x] It should contain the text `"Login"`
+    - [x] When clicked, it should call the `loginUser` function
 
 #### Implement the `LoginPage` Component
 
-- [ ] Build the **`LoginPage`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `login-page`
-  - [ ] Using either a custom hook, context, or manually set state, check to see if a user is already logged in
+- [x] Build the **`LoginPage`** component to:
+  - [x] Render JSX that is wrapped by an element with the class name of `login-page`
+  - [] Using either a custom hook, context, or manually set state, check to see if a user is already logged in
     - [ ] If the user is already logged in, redirect them to the `/activity` page.
     - [ ] If no user is authenticated, render the `LoginForm` component and pass it any props it needs.
 
@@ -171,25 +171,25 @@ Update the `App` component to manage authentication state:
 - [ ] Build the **`RegistrationForm`** component to:
   - [ ] Render JSX that is wrapped by an element with the class name of `registration-form`
   - [ ] Should render an input element for the following fields:
-    - [ ] `email`
-    - [ ] `username`
-    - [ ] `firstName`
-    - [ ] `lastName`
-    - [ ] `password`
-    - [ ] `passwordConfirm`
-  - [ ] Each `input` element in the form should have a class name of `form-input` and should have the following props set:
-    - [ ] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
-    - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc.)
-    - [ ] `value` - the current value of the `input` element
-    - [ ] `onChange` - the `onChange` handler function
-  - [ ] Validate the `email` field: If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the class name of `error` indicating that the entry is not a valid email.
-  - [ ] Validate the `password` and `passwordConfirm` fields: If the user has entered text into the `password` and `passwordConfirm` fields and they don't match, then a message should be displayed in an element with the `className` of `error` with a message that contains the text: `passwords don't match`
-  - [ ] Gracefully handle errors:
-    - [ ] If the user has attempted to login and gotten a `401` error, then the `errors` object should contain a `form` property that contains a message indicating that the `email` and `password` combination is incorrect.
-    - [ ] If the user has attempted to login and gotten a `400` or `422` error, then the `errors` object should contain a `form` property that contains a message indicating what went wrong.
-  - [ ] There should be a `button` element with the `className` of `submit-registration`:
-    - [ ] It should contain the text `"Create Account"`
-    - [ ] When clicked, it should call the `signupUser` function
+    - [x] `email`
+    - [x] `username`
+    - [x] `firstName`
+    - [x] `lastName`
+    - [x] `password`
+    - [x] `passwordConfirm`
+  - [x] Each `input` element in the form should have a class name of `form-input` and should have the following props set:
+    - [x] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
+    - [x] `type` - the type of the `input` element (`text`, `email`, `number`, etc.)
+    - [x] `value` - the current value of the `input` element
+    - [x] `onChange` - the `onChange` handler function
+  - [x] Validate the `email` field: If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the class name of `error` indicating that the entry is not a valid email.
+  - [x] Validate the `password` and `passwordConfirm` fields: If the user has entered text into the `password` and `passwordConfirm` fields and they don't match, then a message should be displayed in an element with the `className` of `error` with a message that contains the text: `passwords don't match`
+  - [x] Gracefully handle errors:
+    - [x] If the user has attempted to login and gotten a `401` error, then the `errors` object should contain a `form` property that contains a message indicating that the `email` and `password` combination is incorrect.
+    - [x] If the user has attempted to login and gotten a `400` or `422` error, then the `errors` object should contain a `form` property that contains a message indicating what went wrong.
+  - [x] There should be a `button` element with the `className` of `submit-registration`:
+    - [x] It should contain the text `"Create Account"`
+    - [x] When clicked, it should call the `signupUser` function
 
 #### Implement the `RegistrationPage` component
 
@@ -486,8 +486,8 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] Invalid credentials throws `UnauthorizedError`
       - [ ] Test the `register` method. Write test cases for:
         - [ ] User can successfully register with proper credentials
-        - [ ] Registering with duplicate email throws `BadRequestError`
-        - [ ] Registering with duplicate username throws `BadRequestError`
+        - [] Registering with duplicate email throws `BadRequestError`
+        - [] Registering with duplicate username throws `BadRequestError`
         - [ ] Registering with invalid email throws `BadRequestError`
       - [ ] Test the `fetchUserByEmail` method:. Write test cases for:
         - [ ] A valid email returns a user from the database

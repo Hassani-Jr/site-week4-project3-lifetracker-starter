@@ -7,8 +7,12 @@ export default function Navbar() {
       <div className="navWrapper">
         <div className="activities">
           <Link to="/">
-            <a className="logo">
-              <img src="codepath-f1b3e41a.svg" alt="codepath-logo"></img>
+            <a>
+              <img
+                className="logo"
+                src="https://i.imgur.com/QKbfRZI.png"
+                alt="codepath-logo"
+              ></img>
             </a>
           </Link>
           <a className="activity">Activity</a>

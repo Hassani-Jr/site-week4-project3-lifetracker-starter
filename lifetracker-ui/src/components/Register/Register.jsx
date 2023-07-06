@@ -2,8 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
+import apiClient from "../../services/apiClient";
+import Navbar from "../Navbar/Navbar";
 
-export default function Register({ setAppState }) {
+export default function Register({ user, setUser }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -61,36 +63,52 @@ export default function Register({ setAppState }) {
     } else {
       setErrors((e) => ({ ...e, passwordConfirm: null }));
     }
-
-    try {
-      const res = await axios.post("http://localhost:3001/auth/register", {
-        username: form.username,
-        first_name: form.first_name,
-        last_name: form.last_name,
-        email: form.email,
-        password: form.password,
-      });
-
-      if (res?.data?.user) {
-        setAppState(res.data);
-        setIsLoading(false);
-        navigate("/portal");
-      } else {
-        setErrors((e) => ({
-          ...e,
-          form: "Something went wrong with registration",
-        }));
-        setIsLoading(false);
-      }
-    } catch (err) {
-      console.log(err);
-      const message = err?.response?.data?.error?.message;
-      setErrors((e) => ({
-        ...e,
-        form: message ? String(message) : String(err),
-      }));
-      setIsLoading(false);
+    const { data, error } = await apiClient.signupUser({
+      username: form.username,
+      first_name: form.first_name,
+      last_name: form.last_name,
+      email: form.email,
+      password: form.password,
+    });
+    if (data?.user) {
+      setUser(data.user);
+      apiClient.setToken(data.token);
+      navigate("/me");
     }
+    if (error) {
+      setErrors((e) => ({ ...e, form: error }));
+    }
+
+    setIsLoading(false);
+    // try {
+    //   const res = await axios.post("http://localhost:3001/auth/register", {
+    //     username: form.username,
+    //     first_name: form.first_name,
+    //     last_name: form.last_name,
+    //     email: form.email,
+    //     password: form.password,
+    //   });
+
+    //   if (res?.data?.user) {
+    //     setAppState(res.data);
+    //     setIsLoading(false);
+    //     navigate("/me");
+    //   } else {
+    //     setErrors((e) => ({
+    //       ...e,
+    //       form: "Something went wrong with registration",
+    //     }));
+    //     setIsLoading(false);
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    //   const message = err?.response?.data?.error?.message;
+    //   setErrors((e) => ({
+    //     ...e,
+    //     form: message ? String(message) : String(err),
+    //   }));
+    //   setIsLoading(false);
+    // }
   };
 
   return (
