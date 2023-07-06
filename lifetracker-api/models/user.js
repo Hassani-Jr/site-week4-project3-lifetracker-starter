@@ -2,7 +2,6 @@ const { BadRequestError, UnauthorizedError} = require('../utils/errors')
 const db = require('../db')
 const {BCRYPT_WORK_FACTOR} = require('../config')
 const bcrypt = require('bcrypt')
-const { use } = require('../routes/auth')
 
 
 class User{

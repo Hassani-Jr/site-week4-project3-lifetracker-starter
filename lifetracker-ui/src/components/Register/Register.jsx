@@ -24,6 +24,11 @@ export default function Register({ setAppState }) {
           passwordConfirm: "Password's do not match",
         }));
       }
+    } else if (form.passwordConfirm && form.password === "") {
+      setErrors((e) => ({
+        ...e,
+        passwordConfirm: "Password cannot be empty",
+      }));
     } else {
       setErrors((e) => ({ ...e, passwordConfirm: null }));
     }
@@ -46,7 +51,7 @@ export default function Register({ setAppState }) {
       setErrors((e) => ({ ...e, passwordConfirm: "Passwords do not match." }));
       setIsLoading(false);
       return;
-    } else if (form.passwordConfirm || form.password === "") {
+    } else if (form.passwordConfirm && form.password === "") {
       setErrors((e) => ({
         ...e,
         passwordConfirm: "Password cannot be empty",
