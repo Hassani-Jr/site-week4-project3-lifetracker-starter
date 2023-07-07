@@ -164,7 +164,11 @@ export default function Register({ user, setUser }) {
           </div>
         </div>
 
-        <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
+        <button
+          className="registerBtn"
+          disabled={isLoading}
+          onClick={handleOnSubmit}
+        >
           {isLoading ? "Loading..." : "Create Account"}
         </button>
         <div className="footer">

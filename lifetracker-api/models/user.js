@@ -92,6 +92,35 @@ class User{
         const user = results.rows[0]
         return user
     }
+    static async sleep(sleepData, userId) {
+        const requiredFields = [ "starttime", "endtime", "userId"]; // creating an array of the required fields
+        // sleepData.userId = userId; // setting the userId to the userId from the request body
+        // validateFields(sleepData, requiredFields); // validating the required fields
+
+        const query = `INSERT INTO sleep(start_time, end_time, user_id)
+        VALUES ($1, $2, $3)
+        RETURNING id, start_time, end_time, user_id`; // creating a query to insert the sleep data into the database
+        const result = await db.query(query, [sleepData.starttime, sleepData.endtime, userId]); // querying the database
+
+        const sleep = result.rows[0]; // creating a variable for the sleep data
+
+        return sleep; // returning the sleep data
+    }
+
+    static async fetchSleepById(id) {
+        if (!id) { // checking if the id is null or undefined
+            throw new BadRequestError("No id provided"); // throwing an error if there is no id
+        }
+
+        const query = `SELECT * FROM sleep WHERE user_id = $1`; // creating a query to fetch the sleep data by id
+        const result = await db.query(query, [id]); // querying the database
+
+        const sleep = result.rows; // creating a variable for the sleep data
+
+        console.log("sleep", sleep)
+       
+        return sleep; // returning the sleep data
+}
 }
 
  module.exports = User

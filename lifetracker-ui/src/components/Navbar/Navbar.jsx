@@ -31,7 +31,11 @@ export default function Navbar({ handleLogout, user }) {
         </div>
         {user?.email ? (
           <Link to="/">
-            <button className="logoutBtn" type="button" onClick={handleLogout}>
+            <button
+              className="registerBtn"
+              type="button"
+              onClick={handleLogout}
+            >
               Logout
             </button>
           </Link>

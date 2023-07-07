@@ -37,7 +37,9 @@ export default function Login({ user, setUser }) {
       setErrors((e) => ({ ...e, form: error }));
     }
     if (data?.user) {
+      console.log(data.user.id)
       setUser(data.user);
+      localStorage.setItem("id", data.user.id)
       apiClient.setToken(data.token);
       navigate("/me");
     }

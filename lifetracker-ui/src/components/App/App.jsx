@@ -1,6 +1,5 @@
 import "./App.css";
 import Navbar from "../Navbar/Navbar";
-import Hero from "../Hero/Hero";
 import { useEffect, useState } from "react";
 import Register from "../Register/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -15,6 +14,7 @@ import apiClient from "../../services/apiClient";
 function App() {
   const [appState, setAppState] = useState({});
   const [user, setUser] = useState({});
+
   const [error, setError] = useState(null);
 
   useEffect(() => {
