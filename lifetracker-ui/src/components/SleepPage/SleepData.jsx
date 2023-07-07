@@ -8,19 +8,17 @@ export default function SleepData({ sleepState, setSleepState }) {
   const [sleepData, setSleepData] = useState([]);
 
   useEffect(() => {
-    if (sleepState) {
-      axios
-        .post("http://localhost:3001/auth/sleepdata", { id: id })
-        .then((response) => {
-          console.log("Sleep data retrieved successfully:", response.data);
-          setSleepData(response.data.sleepdata);
-        })
-        .catch((error) => {
-          console.error("Error retrieving sleep data:", error);
-        });
+    axios
+      .post("http://localhost:3001/auth/sleepdata", { id: id })
+      .then((response) => {
+        console.log("Sleep data retrieved successfully:", response.data);
+        setSleepData(response.data.sleepdata);
+      })
+      .catch((error) => {
+        console.error("Error retrieving sleep data:", error);
+      });
 
-      setSleepState(false);
-    }
+    setSleepState(false);
   }, [sleepState, setSleepState, id]);
 
   function formatDate(dateTime) {
@@ -55,7 +53,10 @@ export default function SleepData({ sleepState, setSleepState }) {
             .map((sleep, index) => (
               <div className="sleepData-item" key={index}>
                 <div className="sleep-hours">
-                  <p>{calculateHoursSlept(sleep.start_time, sleep.end_time)}</p>
+                  <p>
+                    {calculateHoursSlept(sleep.start_time, sleep.end_time) +
+                      " hrs"}
+                  </p>
                 </div>
 
                 <h2>Start Time</h2>
