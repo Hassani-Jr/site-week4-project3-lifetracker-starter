@@ -4,3 +4,29 @@
 .SleepPage .button button {
   flex: 1;
 }
+
+.sleep-wrapper{
+  display: flex;
+  flex-direction: row;
+}
+
+.sleepData-item{
+    height: 350px;
+    width: 250px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #e4e4e4;
+
+    margin: 20px;
+}
+
+.sleepData-container{
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title{
+  text-align: center;
+}

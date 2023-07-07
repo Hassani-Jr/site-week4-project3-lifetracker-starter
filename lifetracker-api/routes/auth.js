@@ -39,21 +39,16 @@ router.get("/me", security.requrireAuthUser, async (req,res,next) => {
 
 router.post("/sleep",  async (req, res, next) => {
 
-  const { userId, sleepdata } = req.body;
- 
-  console.log(req.body)
-  
+  const { userId, sleepdata } = req.body;  
   try {
       const sleep = await User.sleep(sleepdata, userId); //calling the sleep method from the user model
       return res.status(200).json({ sleep }); //returning the sleep
-      
   } catch (err) {
       return next(err);
   }
 }) //creating a route for the sleep page")
 
 router.post("/sleepdata", async (req, res, next) => {
-  
   const id = req.body.id; // Getting the id from the request body
   const sleepdata = await User.fetchSleepById(id); // Fetching the sleep data by id
   return res.status(200).json({ sleepdata }); // Returning the sleep data

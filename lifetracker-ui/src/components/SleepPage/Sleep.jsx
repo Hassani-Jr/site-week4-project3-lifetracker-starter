@@ -15,12 +15,12 @@ export default function Sleep({
   const [sleepUser, setSleepUser] = useState({ starttime: "", endtime: "" });
 
   const userId = localStorage.getItem("id");
-  
+
   const [sleepState, setSleepState] = useState();
+  const [isOn, setIsOn] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
-
 
     axios
       .post("http://localhost:3001/auth/sleep", {
@@ -46,11 +46,11 @@ export default function Sleep({
     });
   }
 
-
   return (
     <>
       {user?.email ? (
         <div className="sleepForm-container">
+          <h1 className="title">Sleep Log</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="starttime">
               <p>Start Time</p>
@@ -79,7 +79,7 @@ export default function Sleep({
           <SleepData sleepState={sleepState} setSleepState={setSleepState} />
         </div>
       ) : (
-        <h1>Sign in to view Sleep data</h1>
+        <h1>Login to see your data</h1>
       )}
     </>
   );

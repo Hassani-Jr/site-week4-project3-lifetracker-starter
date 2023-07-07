@@ -14,3 +14,38 @@
   cursor: pointer;
   transform: scale(1.05);
 }
+
+
+.homeTile{
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 10px;
+    gap: 20px;
+
+  display: flex;
+  -webkit-box-pack: justify;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+
+}
+
+.Tile {
+  border-radius: 10px;
+  background: white;
+  padding: 16px;
+  min-width: 80px;
+  min-width: 250px;
+  min-height: 250px;
+  margin-bottom: 16px;
+  transition: all .25s ease-in-out;
+  box-shadow: #09064a26 0 2px 34px;
+}
+
+.Tile img{
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
