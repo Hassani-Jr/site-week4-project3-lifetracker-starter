@@ -1,7 +1,8 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import apiClient from "../../services/apiClient";
 
-export default function Navbar() {
+export default function Navbar({ handleLogout, user }) {
   return (
     <nav className="Navbar">
       <div className="navWrapper">
@@ -20,22 +21,30 @@ export default function Navbar() {
           <a className="activity">Nutrition</a>
           <a className="activity">Sleep</a>
         </div>
-        <div className="loginAndRegisterBtns">
-          <a className="login">
-            <Link to="/login">
-              <button className="loginBtn" type="button">
-                Sign In
-              </button>
-            </Link>
-          </a>
-          <a className="register">
-            <Link to="/register">
-              <button className="registerBtn" type="button">
-                Register
-              </button>
-            </Link>
-          </a>
-        </div>
+        {user?.email ? (
+          <Link to="/">
+            <button className="logoutBtn" type="button" onClick={handleLogout}>
+              Logout
+            </button>
+          </Link>
+        ) : (
+          <div className="loginAndRegisterBtns">
+            <a className="login">
+              <Link to="/login">
+                <button className="loginBtn" type="button">
+                  Sign In
+                </button>
+              </Link>
+            </a>
+            <a className="register">
+              <Link to="/register">
+                <button className="registerBtn" type="button">
+                  Register
+                </button>
+              </Link>
+            </a>
+          </div>
+        )}
       </div>
     </nav>
   );

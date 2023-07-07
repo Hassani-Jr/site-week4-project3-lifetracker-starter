@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 import apiClient from "../../services/apiClient";
@@ -80,35 +79,6 @@ export default function Register({ user, setUser }) {
     }
 
     setIsLoading(false);
-    // try {
-    //   const res = await axios.post("http://localhost:3001/auth/register", {
-    //     username: form.username,
-    //     first_name: form.first_name,
-    //     last_name: form.last_name,
-    //     email: form.email,
-    //     password: form.password,
-    //   });
-
-    //   if (res?.data?.user) {
-    //     setAppState(res.data);
-    //     setIsLoading(false);
-    //     navigate("/me");
-    //   } else {
-    //     setErrors((e) => ({
-    //       ...e,
-    //       form: "Something went wrong with registration",
-    //     }));
-    //     setIsLoading(false);
-    //   }
-    // } catch (err) {
-    //   console.log(err);
-    //   const message = err?.response?.data?.error?.message;
-    //   setErrors((e) => ({
-    //     ...e,
-    //     form: message ? String(message) : String(err),
-    //   }));
-    //   setIsLoading(false);
-    // }
   };
 
   return (
