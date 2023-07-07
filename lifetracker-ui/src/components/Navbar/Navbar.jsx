@@ -16,10 +16,18 @@ export default function Navbar({ handleLogout, user }) {
               ></img>
             </a>
           </Link>
-          <a className="activity">Activity</a>
-          <a className="activity">Exercise</a>
-          <a className="activity">Nutrition</a>
-          <a className="activity">Sleep</a>
+          <Link to="/me">
+            <a className="activity">Activity</a>
+          </Link>
+          <Link to="/exercise">
+            <a className="activity">Exercise</a>
+          </Link>
+          <Link to="/nutrition">
+            <a className="activity">Nutrition</a>
+          </Link>
+          <Link to="/sleep">
+            <a className="activity">Sleep</a>
+          </Link>
         </div>
         {user?.email ? (
           <Link to="/">

@@ -1,6 +1,6 @@
-import "./ActivityPage.css";
+import "./NutritionPage.css";
 
-export default function ActivityPage({ user, setAppState }) {
+export default function NutritionPage({ user, setAppState }) {
   return user?.email ? (
     <div>
       <h3>Hello {user?.username}</h3>

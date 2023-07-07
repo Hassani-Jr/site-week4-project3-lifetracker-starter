@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import ActivityPage from "../ActivityPage/ActivityPage";
+import ExercisePage from "../ExercisePage/ExercisePage";
+import Sleep from "../SleepPage/Sleep";
+import NutritionPage from "../NutritionPage/NutritionPage";
 import apiClient from "../../services/apiClient";
 
 function App() {
@@ -66,6 +69,9 @@ function App() {
               />
             }
           />
+          <Route path="/exercise" element={<ExercisePage user={user} />} />
+          <Route path="/nutrition" element={<NutritionPage user={user} />} />
+          <Route path="/sleep" element={<Sleep user={user} />} />
         </Routes>
       </BrowserRouter>
     </div>
