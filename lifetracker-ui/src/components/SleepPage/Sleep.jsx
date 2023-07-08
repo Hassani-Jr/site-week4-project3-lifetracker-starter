@@ -23,7 +23,7 @@ export default function Sleep({
     event.preventDefault();
 
     axios
-      .post("http://localhost:3001/auth/sleep", {
+      .post("https://hassani-lifetracker-backend.onrender.com/auth/sleep", {
         userId: userId,
         sleepdata: sleepUser,
       })

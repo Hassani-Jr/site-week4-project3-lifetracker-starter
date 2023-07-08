@@ -9,7 +9,9 @@ export default function SleepData({ sleepState, setSleepState }) {
 
   useEffect(() => {
     axios
-      .post("http://localhost:3001/auth/sleepdata", { id: id })
+      .post("https://hassani-lifetracker-backend.onrender.com/auth/sleepdata", {
+        id: id,
+      })
       .then((response) => {
         console.log("Sleep data retrieved successfully:", response.data);
         setSleepData(response.data.sleepdata);

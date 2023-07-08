@@ -31,12 +31,12 @@ By the end of this project you will be able to...
   - [x] If the user is logged in, it should display a **Sign Out** button.
   - [x] If no user is logged in, it should display **Login** and **Register** buttons.
   - [x] Display a logo on the far left side, and contain links to the individual detailed activity pages.
-- [ ] Users should have the ability to track at least **one** type of activity (i.e., nutrition, exercise, sleep, etc.). Each activity should be tracked on separate pages.
-- [ ] **Detailed Activity Page:** Display and enter activities.
-  - [ ] Display a feed of all previously tracked activities.
-  - [ ] A form to enter relevant information (i.e., if tracking nutrition, the user can enter calories, timestamp, image, category, etc.).
-  - [ ] Each activity tracked is given a unique ID for easy lookup.
-- [ ] Deploy your website with Render. Check out our [Render Deployment Guide](https://courses.codepath.org/snippets/site/render_deployment_guide) for detailed instructions.
+- [x] Users should have the ability to track at least **one** type of activity (i.e., nutrition, exercise, sleep, etc.). Each activity should be tracked on separate pages.
+- [x] **Detailed Activity Page:** Display and enter activities.
+  - [x] Display a feed of all previously tracked activities.
+  - [x] A form to enter relevant information (i.e., if tracking nutrition, the user can enter calories, timestamp, image, category, etc.).
+  - [x] Each activity tracked is given a unique ID for easy lookup.
+- [x] Deploy your website with Render. Check out our [Render Deployment Guide](https://courses.codepath.org/snippets/site/render_deployment_guide) for detailed instructions.
 
 ### Stretch Features
 
@@ -193,11 +193,11 @@ Update the `App` component to manage authentication state:
 
 #### Implement the `RegistrationPage` component
 
-- [ ] Build the **`RegistrationPage`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `registration-page`
-  - [ ] Using either a custom hook, context, or manually handled state, check to see if a user is already logged in
-    - [ ] If the user is already logged in, it should redirect them to the `/activity` page
-    - [ ] If no user is authenticated, it should render the `RegistrationForm` component and pass it any props it needs
+- [x] Build the **`RegistrationPage`** component to:
+  - [x] Render JSX that is wrapped by an element with the class name of `registration-page`
+  - [x] Using either a custom hook, context, or manually handled state, check to see if a user is already logged in
+    - [x] If the user is already logged in, it should redirect them to the `/activity` page
+    - [x] If no user is authenticated, it should render the `RegistrationForm` component and pass it any props it needs
 
 #### Implement the `LandingPage` Component
 
