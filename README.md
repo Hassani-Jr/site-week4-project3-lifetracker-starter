@@ -38,6 +38,13 @@ By the end of this project you will be able to...
   - [x] Each activity tracked is given a unique ID for easy lookup.
 - [x] Deploy your website with Render. Check out our [Render Deployment Guide](https://courses.codepath.org/snippets/site/render_deployment_guide) for detailed instructions.
 
+### Video
+
+https://www.loom.com/share/2da773ecd2b2474bba630df35a25993f?sid=40db2260-8631-41b0-bcb5-682004daadaf
+
+### Render Link
+
+https://hassani-lifetracker-frontend.onrender.com/
 ### Stretch Features
 
 Implement any of the following features to improve the application:
